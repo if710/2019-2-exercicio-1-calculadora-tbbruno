@@ -8,26 +8,50 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var currentNumber: String? = null
+    var currentNumber: String = ""
+    var currentExpr: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Add listeners to all digit buttons
         val digitBtns = arrayOf(btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_Dot)
         for (btn in digitBtns) {
             btn.setOnClickListener { digitTapped(it) }
+        }
+
+        // Add listeners to all operations buttons
+        val opBtns = arrayOf(btn_Add, btn_Subtract, btn_Multiply, btn_Divide, btn_Power, btn_LParen, btn_RParen)
+        for (btn in opBtns) {
+            btn.setOnClickListener { operationTapped(it) }
         }
     }
 
     fun digitTapped(view: View) {
         if (view is Button) {
             val value = view.text
-            
+
             // Add the last digit typed to the current number
-            this.currentNumber = (currentNumber ?: "") + value
-            // Update current number on 'text_cal' TextField
+            this.currentNumber = currentNumber + value
+            // Update 'text_cal' TextField with the updated current number
             text_calc.setText(currentNumber)
+        }
+    }
+
+    fun operationTapped(view: View) {
+        if (view is Button) {
+            val op = view.text
+
+            // Add currentNumber and tapped operation to the current expression
+            this.currentExpr = currentExpr + currentNumber + op
+            // Update 'text_info' TextField with the updated expression
+            text_info.setText(currentExpr)
+
+            // Clear currentNumber variable and its TextField
+            this.currentNumber = ""
+            text_calc.setText("")
+
         }
     }
 
