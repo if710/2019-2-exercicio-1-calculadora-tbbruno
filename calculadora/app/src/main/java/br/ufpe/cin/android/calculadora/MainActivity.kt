@@ -2,14 +2,34 @@ package br.ufpe.cin.android.calculadora
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    var currentNumber: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val digitBtns = arrayOf(btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_Dot)
+        for (btn in digitBtns) {
+            btn.setOnClickListener { digitTapped(it) }
+        }
     }
 
+    fun digitTapped(view: View) {
+        if (view is Button) {
+            val value = view.text
+            
+            // Add the last digit typed to the current number
+            this.currentNumber = (currentNumber ?: "") + value
+            // Update current number on 'text_cal' TextField
+            text_calc.setText(currentNumber)
+        }
+    }
 
     //Como usar a função:
     // eval("2+2") == 4.0
