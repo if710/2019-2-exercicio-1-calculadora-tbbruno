@@ -26,6 +26,19 @@ class MainActivity : AppCompatActivity() {
         for (btn in opBtns) {
             btn.setOnClickListener { operationTapped(it) }
         }
+
+        // Add listener to clear button:
+        btn_Clear.setOnClickListener {
+            if (currentNumber != "") {
+                // On the first time it is tapped, clears the current number field
+                currentNumber = ""
+                text_calc.setText("")
+            } else {
+                // If the current number field is already cleared, it clears the whole expression
+                currentExpr = ""
+                text_info.setText("")
+            }
+        }
     }
 
     fun digitTapped(view: View) {
