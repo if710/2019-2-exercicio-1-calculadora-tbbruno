@@ -22,16 +22,18 @@
     <EditText
             android:id="@+id/text_calc"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
             android:enabled="false"
             android:gravity="bottom"
             android:inputType="numberDecimal"
             android:lines="2"
             android:maxLines="2"
             android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/barrier3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_info" />
@@ -45,7 +47,9 @@
             android:layout_marginTop="16dp"
             android:text="7"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_4"
             app:layout_constraintEnd_toStartOf="@+id/btn_8"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline-left"
             app:layout_constraintTop_toBottomOf="@+id/text_calc" />
 
@@ -54,33 +58,42 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="8"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_5"
             app:layout_constraintEnd_toStartOf="@+id/btn_9"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_7"
-            app:layout_constraintTop_toTopOf="@+id/btn_7" />
+            app:layout_constraintTop_toBottomOf="@+id/text_calc" />
 
     <Button
             android:id="@+id/btn_9"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="9"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_6"
             app:layout_constraintEnd_toStartOf="@+id/btn_Divide"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_8"
-            app:layout_constraintTop_toTopOf="@+id/btn_7" />
+            app:layout_constraintTop_toBottomOf="@+id/text_calc" />
 
     <Button
             android:id="@+id/btn_Divide"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="/"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Multiply"
             app:layout_constraintEnd_toStartOf="@+id/guideline-right"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_9"
-            app:layout_constraintTop_toTopOf="@+id/btn_7" />
+            app:layout_constraintTop_toBottomOf="@+id/text_calc" />
 
 
     <Button
@@ -90,9 +103,11 @@
             android:layout_height="wrap_content"
             android:text="4"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_5"
+            app:layout_constraintBottom_toTopOf="@+id/btn_1"
             app:layout_constraintEnd_toStartOf="@+id/btn_5"
-            app:layout_constraintStart_toStartOf="@+id/guideline-left" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline-left"
+            app:layout_constraintTop_toBottomOf="@+id/btn_7" />
 
     <Button
             android:id="@+id/btn_5"
@@ -101,9 +116,11 @@
             android:layout_height="wrap_content"
             android:text="5"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_2"
             app:layout_constraintEnd_toStartOf="@+id/btn_6"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_4"
-            app:layout_constraintTop_toTopOf="@+id/btn_6" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_8" />
 
     <Button
             android:id="@+id/btn_6"
@@ -112,9 +129,11 @@
             android:layout_height="wrap_content"
             android:text="6"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_3"
             app:layout_constraintEnd_toStartOf="@+id/btn_Multiply"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_5"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Divide" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_9" />
 
     <Button
             android:id="@+id/btn_Multiply"
@@ -123,9 +142,11 @@
             android:layout_height="wrap_content"
             android:text="*"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_6"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Subtract"
             app:layout_constraintEnd_toStartOf="@+id/guideline-right"
-            app:layout_constraintStart_toEndOf="@+id/btn_6" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_6"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Divide" />
 
 
     <Button
@@ -135,9 +156,11 @@
             android:layout_height="wrap_content"
             android:text="1"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_2"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Dot"
             app:layout_constraintEnd_toStartOf="@+id/btn_2"
-            app:layout_constraintStart_toStartOf="@+id/guideline-left" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline-left"
+            app:layout_constraintTop_toBottomOf="@+id/btn_4" />
 
     <Button
             android:id="@+id/btn_2"
@@ -146,9 +169,11 @@
             android:layout_height="wrap_content"
             android:text="2"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_0"
             app:layout_constraintEnd_toStartOf="@+id/btn_3"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_1"
-            app:layout_constraintTop_toBottomOf="@+id/btn_4" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_5" />
 
     <Button
             android:id="@+id/btn_3"
@@ -157,9 +182,11 @@
             android:layout_height="wrap_content"
             android:text="3"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Equal"
             app:layout_constraintEnd_toStartOf="@+id/btn_Subtract"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_2"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Multiply" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_6" />
 
     <Button
             android:id="@+id/btn_Subtract"
@@ -168,9 +195,11 @@
             android:layout_height="wrap_content"
             android:text="-"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_3"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Add"
             app:layout_constraintEnd_toStartOf="@+id/guideline-right"
-            app:layout_constraintStart_toEndOf="@+id/btn_3" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Multiply" />
 
 
     <Button
@@ -180,9 +209,11 @@
             android:layout_height="wrap_content"
             android:text="."
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_0"
+            app:layout_constraintBottom_toTopOf="@+id/btn_LParen"
             app:layout_constraintEnd_toStartOf="@+id/btn_0"
-            app:layout_constraintStart_toStartOf="@+id/guideline-left" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline-left"
+            app:layout_constraintTop_toBottomOf="@+id/btn_1" />
 
     <Button
             android:id="@+id/btn_0"
@@ -191,9 +222,11 @@
             android:layout_height="wrap_content"
             android:text="0"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_RParen"
             app:layout_constraintEnd_toStartOf="@+id/btn_Equal"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_Dot"
-            app:layout_constraintTop_toBottomOf="@+id/btn_1" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_2" />
 
     <Button
             android:id="@+id/btn_Equal"
@@ -202,9 +235,11 @@
             android:layout_height="wrap_content"
             android:text="="
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Power"
             app:layout_constraintEnd_toStartOf="@+id/btn_Add"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_0"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Subtract" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_3" />
 
     <Button
             android:id="@+id/btn_Add"
@@ -214,9 +249,11 @@
             android:onClick="digitTapped"
             android:text="+"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_Equal"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Clear"
             app:layout_constraintEnd_toStartOf="@+id/guideline-right"
-            app:layout_constraintStart_toEndOf="@+id/btn_Equal" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_Equal"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Subtract" />
 
 
     <Button
@@ -224,44 +261,56 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="("
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_RParen"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_RParen"
-            app:layout_constraintStart_toStartOf="@+id/guideline-left" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline-left"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Dot" />
 
     <Button
             android:id="@+id/btn_RParen"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text=")"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_Power"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_LParen"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Dot" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_0" />
 
     <Button
             android:id="@+id/btn_Power"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="^"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_Clear"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_RParen"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Add" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_Equal" />
 
     <Button
             android:id="@+id/btn_Clear"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="C"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/btn_Power"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline-right"
-            app:layout_constraintStart_toEndOf="@+id/btn_Power" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_Power"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Add" />
 
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline-left"
@@ -278,5 +327,14 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintGuide_end="24dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/btns_topBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="btn_6,btn_0,btn_5,btn_8,btn_LParen,btn_Dot,btn_Equal,btn_Add,btn_Subtract,btn_4,btn_Power,btn_2,btn_9,btn_Divide,btn_1,btn_Multiply,btn_RParen,btn_Clear,btn_7,btn_3"
+            tools:layout_editor_absoluteX="411dp"
+            tools:layout_editor_absoluteY="667dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
