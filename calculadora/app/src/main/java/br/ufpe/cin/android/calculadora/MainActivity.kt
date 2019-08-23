@@ -10,6 +10,11 @@ import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        val CURRENT_NUMBER = "currentNumber"
+        val CURRENT_EXPR = "currentExpr"
+    }
+
     var currentNumber: String = ""
     var currentExpr: String = ""
 
@@ -48,6 +53,29 @@ class MainActivity : AppCompatActivity() {
                 if (e.message != null)
                     displayMsg(e.message!!)
             }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        // Save the currentNumber typed and the current
+        //   expression to be evaluated, before configuration changes.
+        outState.run {
+            putString(CURRENT_NUMBER, currentNumber)
+            putString(CURRENT_EXPR, currentExpr)
+        }
+
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        savedInstanceState.run {
+            currentNumber = getString(CURRENT_NUMBER).toString()
+            currentExpr = getString(CURRENT_EXPR).toString()
+
+            text_calc.setText(currentNumber)
+            text_info.setText(currentExpr)
         }
     }
 
