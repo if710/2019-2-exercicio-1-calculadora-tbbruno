@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,16 +29,24 @@ class MainActivity : AppCompatActivity() {
             btn.setOnClickListener { operationTapped(it) }
         }
 
-        // Add listener to clear button:
-        btn_Clear.setOnClickListener {
-            if (currentNumber != "") {
-                // On the first time it is tapped, clears the current number field
-                currentNumber = ""
-                text_calc.setText("")
-            } else {
-                // If the current number field is already cleared, it clears the whole expression
-                currentExpr = ""
-                text_info.setText("")
+        // Add listener to clear button
+        btn_Clear.setOnClickListener { clear() }
+
+        // Add listener to equals button
+        btn_Equal.setOnClickListener {
+            updateExpression()
+            try {
+                // Tries to evaluate the expression
+                val result = eval(currentExpr)
+
+                // Update the interface to clear previous info and display the result
+                clear()
+                currentNumber = "$result"
+                text_calc.setText(currentNumber)
+            }
+            catch (e: Exception) {
+                if (e.message != null)
+                    displayMsg(e.message!!)
             }
         }
     }
@@ -54,18 +64,38 @@ class MainActivity : AppCompatActivity() {
 
     fun operationTapped(view: View) {
         if (view is Button) {
-            val op = view.text
+            val op = view.text as String
 
-            // Add currentNumber and tapped operation to the current expression
-            this.currentExpr = currentExpr + currentNumber + op
-            // Update 'text_info' TextField with the updated expression
-            text_info.setText(currentExpr)
-
-            // Clear currentNumber variable and its TextField
-            this.currentNumber = ""
-            text_calc.setText("")
-
+            updateExpression(op)
         }
+    }
+
+    fun updateExpression(op: String? = null) {
+        // Add currentNumber and tapped operation (if any) to the current expression
+        this.currentExpr = currentExpr + currentNumber + (op ?: "")
+        // Update 'text_info' TextField with the updated expression
+        text_info.setText(currentExpr)
+
+        // Clear currentNumber variable and its TextField
+        this.currentNumber = ""
+        text_calc.setText("")
+    }
+
+    fun clear() {
+        if (currentNumber != "") {
+            // On the first time it is tapped, clears the current number field
+            currentNumber = ""
+            text_calc.setText("")
+        } else {
+            // If the current number field is already cleared, it clears the whole expression
+            currentExpr = ""
+            text_info.setText("")
+        }
+    }
+
+    fun displayMsg(msg: String) {
+        val toast = Toast.makeText(this, msg, Toast.LENGTH_LONG)
+        toast.show()
     }
 
     //Como usar a função:
